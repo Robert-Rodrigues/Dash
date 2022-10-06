@@ -41,23 +41,36 @@ const body = document.querySelector('body');
 }
 
     function logar(){
-    
         var login = document.getElementById('login').value;
         var senha = document.getElementById('senha').value;
 
         if(login == "admin" && senha == "admin"){
-            alert('Bem-vindo');
-            location.href = "home.html";
-        }else{
-            alert('Usuário ou senha incorretos');
+            function local(){
+                location.href = 'home.html';
+            }
+            Swal.fire({
+                heightAuto: false,
+                icon: 'success',
+                title: 'Logado com sucesso',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              setInterval(local, 1000)
         }
-
+        else{
+            Swal.fire({
+                toast:false,
+                heightAuto: false,
+                icon: 'error',
+                title: 'Falha no login',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
     }
 
     function logout () {
-
     location.href = "index.html";
-
     }
 
 // manipulação dom //
